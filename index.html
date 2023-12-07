@@ -5,9 +5,64 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Web Spider</title>
+        <style>
+            h1 {
+                color: white;
+                font-size: 50px;
+                text-align: center;
+                margin: 50px;
+            }
+
+            body {
+                background: rgb(2, 0, 36);
+                background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(11, 11, 112, 1) 40%, rgba(0, 212, 255, 1) 100%);
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            div {
+                width: 50%;
+                height: 250px;
+                padding: 25px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin: 50px;
+                box-shadow: 5px 0px 30px 10px rgba(255, 255, 255, 0.7);
+                border-radius: 10px;
+            }
+
+            form {
+                text-align: center;
+            }
+
+            input {
+                width: 20rem;
+                height: 1.5rem;
+                border-radius: 5px;
+                border: none;
+                margin: 10px;
+            }
+
+            #submit {
+                width: 5rem;
+            }
+        </style>
     </head>
 
     <body>
+        <h1>Web Crawler</h1>
+        <div>
+            <form action="index.php" method="post">
+                <input type="url" id="url" name="url" placeholder="Seed URL" required> <br />
+                <input type="number" id="depth" name="depth" min="1" placeholder="Searching Depth"> <br />
+                <input type="submit" id="submit">
+            </form>
+        </div>
 
     </body>
 
