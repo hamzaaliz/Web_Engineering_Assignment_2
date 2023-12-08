@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Web Spider</title>
+        <title>Web Crawler</title>
         <style>
             h1 {
                 color: white;
@@ -23,19 +23,6 @@
                 align-items: center;
             }
 
-            div {
-                width: 50%;
-                height: 250px;
-                padding: 25px;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                margin: 50px;
-                box-shadow: 5px 0px 30px 10px rgba(255, 255, 255, 0.7);
-                border-radius: 10px;
-            }
-
             form {
                 text-align: center;
             }
@@ -51,20 +38,43 @@
             #submit {
                 width: 5rem;
             }
+
+            #searchText {
+                display: none;
+            }
         </style>
     </head>
 
     <body>
         <h1>Web Crawler</h1>
-        <div>
-            <form action="index.php" method="post">
-                <input type="url" id="url" name="url" placeholder="Seed URL" required> <br />
-                <input type="number" id="depth" name="depth" min="1" max="2" step="1" placeholder="Searching Depth"
-                    required>
-                <br />
-                <input type="submit" id="submit">
-            </form>
-        </div>
+        <form action="index.php" method="post">
+            <input type="url" id="url" name="url" placeholder="Seed URL" required> <br /><br />
+            <label for="task">Select Choice:</label>
+            <select id="task" name="task">
+                <option value="view">View Crawled Content</option>
+                <option value="find">Find Text</option>
+            </select> <br><br>
+
+            <label id="searchTextLabel" for="searchText">Enter Text to Find:</label>
+            <input type="text" id="searchText" name="searchText">
+
+            <input type="submit" id="submit">
+        </form>
+
+        <script>
+            document.getElementById('task').addEventListener('change', function () {
+                var searchTextLabel = document.getElementById('searchTextLabel');
+                var searchText = document.getElementById('searchText');
+
+                if (this.value === 'find') {
+                    searchTextLabel.style.display = 'block';
+                    searchText.style.display = 'block';
+                } else {
+                    searchTextLabel.style.display = 'none';
+                    searchText.style.display = 'none';
+                }
+            });
+        </script>
 
     </body>
 
